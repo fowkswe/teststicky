@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{charset: 'utf-8'}/
+    %meta{content: 'IE=edge,chrome=1', 'http-equiv' => 'X-UA-Compatible'}/
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }/
+
+    %title= 'Teststicky'
+    = csrf_meta_tags
+    = javascript_pack_tag 'hello_vue'
+    = stylesheet_pack_tag 'hello_vue'
+  %body
+    - 20.times do |i|
+      %div= i
+    %nav{style: "position: sticky; top: 20px; z-index: 101;"}
+      %div
+        %ul
+          %li
+            %a{ href: '#' } This
+          %li
+            %a{ href: '#' } Nav, created outside of the vue object
+          %li
+            %a{ href: '#' } WILL
+          %li
+            %a{ href: '#' } STICK!!!!!!!!!!!!!!
+    - 50.times do |i|
+      %div= i
+    #vue-stuff-here= yield
